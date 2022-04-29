@@ -23,8 +23,8 @@ This command will run the test scripts
 Usage:
 
 ```bash
-  node index.js <input-file-path>
+  node geektrust.js <input-file-path>
 ```
 
 Run this command to produce required output
-Make sure you provide correct file path and of correct extention i.e .txt
+Make sure you provide correct file path and of correct extension i.e .txt
