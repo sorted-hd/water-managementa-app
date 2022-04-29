@@ -13,11 +13,13 @@ if (!filePath) {
 
 let inputData = fileProcessor(filePath);
 if (inputData) {
-  let isInputDataCorrect = inputDataCheck(inputData);
-  if (!isInputDataCorrect) {
-    console.log('Please Check Input Commands');
-  } else {
-    let { totalWaterConsumed, totalCost } = billGeneration(inputData);
-    console.log(totalWaterConsumed, totalCost);
-  }
+  let { totalWaterConsumed, totalCost } = billGeneration(inputData);
+  console.log(totalWaterConsumed, totalCost);
+  // let isInputDataCorrect = inputDataCheck(inputData);
+  // if (!isInputDataCorrect) {
+  //   console.log('Please Check Input Commands');
+  // } else {
+  //   let { totalWaterConsumed, totalCost } = billGeneration(inputData);
+  //   console.log(totalWaterConsumed, totalCost);
+  // }
 }
