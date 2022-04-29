@@ -8,7 +8,7 @@ const fileProcessor = (filePath) => {
     return;
   }
   let inputData = fs.readFileSync(filePath, { flag: 'r' });
-  inputData = inputData.toString().split('\n');
+  inputData = inputData.toString().trim().split('\n');
   return inputData;
 };
 

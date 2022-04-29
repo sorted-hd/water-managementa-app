@@ -7,28 +7,21 @@ const billGeneration = (inputData) => {
   let totalCost = 0;
   let totalWaterConsumed = 0;
   let totalWaterConsumedByGuests = 0;
+  let unitCost = 0;
+  let ratio = [];
+
   try {
     inputData.forEach((input) => {
-      const inputValues = input.split(' ');
+      const inputValues = input.trim().split(' ');
+
       if (inputValues[0] === config.constants.ALLOT_WATER) {
         let noOfPeople = config.capacity[Number(inputValues[1])];
         totalWaterConsumed +=
           config.NO_OF_DAYS * config.WATER_PER_DAY * noOfPeople;
-        let individualRatio = inputValues[2].split(':').map(Number);
-        let totalRatio = individualRatio.reduce(
-          (sum, ratio) => (sum += ratio),
-          0
-        );
-        totalCost += corporationBillGeneration(
-          totalWaterConsumed,
-          totalRatio,
-          individualRatio[0]
-        );
-        totalCost += borewellBillGeneration(
-          totalWaterConsumed,
-          totalRatio,
-          individualRatio[1]
-        );
+
+        ratio = inputValues[2].split(':').map(Number);
+
+        unitCost = totalWaterConsumed / (ratio[0] + ratio[1]);
       }
       if (inputValues[0] === config.constants.ADD_GUESTS) {
         let waterConsumed =
@@ -38,7 +31,12 @@ const billGeneration = (inputData) => {
       }
     });
 
-    totalCost += tankerBillGeneration(totalWaterConsumedByGuests);
+    totalCost = Math.ceil(
+      corporationBillGeneration(unitCost, ratio[0]) +
+        borewellBillGeneration(unitCost, ratio[1]) +
+        tankerBillGeneration(totalWaterConsumedByGuests)
+    );
+
     return { totalWaterConsumed, totalCost };
   } catch (error) {
     console.log(error.message);

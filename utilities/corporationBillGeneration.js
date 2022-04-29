@@ -1,10 +1,7 @@
 const config = require('../config');
 
-const corporationBillGeneration = (totalWaterConsumed, totalRatio, ratio) => {
-  let total =
-    Math.round(totalWaterConsumed / totalRatio) *
-    ratio *
-    config.costs.CORPORATION_WATER;
+const corporationBillGeneration = (unitCost, ratio) => {
+  let total = unitCost * ratio * config.costs.CORPORATION_WATER;
   return total;
 };
 
