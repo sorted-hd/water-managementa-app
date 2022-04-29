@@ -39,7 +39,7 @@ const billGeneration = (inputData) => {
 
     return { totalWaterConsumed, totalCost };
   } catch (error) {
-    console.log(error.message);
+    throw new Error(error.message);
   }
 };
 
