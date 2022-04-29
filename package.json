@@ -2,9 +2,9 @@
   "name": "water-management-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "geektrust.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node geektrust.js",
     "test": "mocha"
   },
   "keywords": [],

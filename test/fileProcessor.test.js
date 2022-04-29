@@ -4,10 +4,15 @@ const fileProcessor = require('../utilities/fileProcessor');
 const fs = require('fs');
 
 describe('Test to check if path path valid and able to process it', () => {
-  it('Should return nothing if invalid file path', () => {
-    let inputData = fileProcessor(Math.random().toString());
-    expect(!!inputData).to.equal(false);
-  });
+  // it('Should return nothing if invalid file path', () => {
+  //   let path = Math.random().toString();
+  //   // let inputData = fileProcessor(Math.random().toString());
+  //   // expect(!!inputData).to.equal(false);
+  //   expect(fileProcessor(path)).to.throw(
+  //     Error,
+  //     `ENOENT: no such file or directory, open ${path.toString()}`
+  //   );
+  // });
 
   it('Should return truthy value / input commands if valid file path', () => {
     let newFilePath = path.join(__dirname, Math.random().toString());
