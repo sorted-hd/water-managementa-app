@@ -5,13 +5,14 @@
   "main": "geektrust.js",
   "scripts": {
     "start": "node geektrust.js",
-    "test": "mocha"
+    "test": "nyc mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.6",
-    "mocha": "^9.2.2"
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0"
   }
 }
